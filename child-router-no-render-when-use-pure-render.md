@@ -13,27 +13,34 @@
 
 通常的结构是这样的：
 
-`<Router>`
+```html
+<Router>
 
-​	`<MyComponent>`
+  <MyComponent>
 
-​		`<Route>`
+    <Route>
 
-​			`<ChildComponent>`
+      <ChildComponent>
+
+```
+
+
 
 但用connect包裹的时候，connect会创建一个叫做Connect的组件进行一次包裹。这个时候结构变为这样：
 
-`<Router>`
+```html
+<Router>
 
-​	`<connect>`
+  <connect>
 
-​		`<Connect>`
+    <Connect>
 
-​			`<MyComponent>`
+      <MyComponent>
 
-​				`<Route>`
+        <Route>
 
-​					`<ChildComponent>`
+          <ChildComponent>
+```
 
 原本一切都没问题，但`Connect`组件做了`pure render`处理。在这种情况下，当路由发生改变，`Router`的setState无法通知到`Route`的`componentWillReceiveProps`事件。因为这个时候`Connect`的props和state都没有发生改变，这样就中断了`Router`和`Route`的通信机制，从而导致子组件无法渲染。
 
