@@ -1,4 +1,4 @@
-# react-routr v4的的组件被redux的connect包裹导致子路由没有渲染
+# react-routr v4的组件被connect包裹导致子路由没有渲染
 
 最近在使用react-router v4的时候，通过redux的connect包裹组件，导致组件所在的子路由没有发生渲染。
 花费了一番精力，总算找到问题所在。做个笔记，避免将来再踩坑。
